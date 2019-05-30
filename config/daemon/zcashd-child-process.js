@@ -116,7 +116,7 @@ const runDaemon: () => Promise<?ChildProcess> = () => new Promise(async (resolve
 
   sendToRenderer('zcash-daemon-status', {
     error: false,
-    status: 'Zepio Starting',
+    status: 'BZWallet Starting',
   });
 
   // In case of --relaunch on argv, we need wait to close the old zcash daemon

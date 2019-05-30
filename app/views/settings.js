@@ -368,7 +368,7 @@ export class SettingsView extends PureComponent<Props, State> {
 
     const networkOptions = [
       { label: 'Mainnet', value: MAINNET },
-      { label: 'Testnet', value: TESTNET },
+      // { label: 'Testnet', value: TESTNET },
     ];
 
     return (
@@ -379,7 +379,7 @@ export class SettingsView extends PureComponent<Props, State> {
           showButtons={embeddedDaemon}
           renderTrigger={toggleVisibility => (
             <ThemeSelectWrapper>
-              <SettingsTitle value='Zcash Network' />
+              <SettingsTitle value='BZE Network' />
               <SelectComponent
                 onChange={value => (zcashNetwork !== value ? toggleVisibility() : undefined)}
                 value={zcashNetwork}

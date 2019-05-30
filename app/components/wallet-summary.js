@@ -109,41 +109,30 @@ export const Component = ({
     <OutsideWrapper>
       <OutsideLabel value='Wallet Summary' />
       <Wrapper>
-        <TotalContainer>
-          <TextComponent
-            size={theme.fontSize.medium * 2.4}
-            value={`${coinName} ${formatNumber({ value: total })}`}
-            isBold
-          />
-          <USDValue
-            value={`USD $${formatNumber({ value: total * zecPrice })}`}
-            size={theme.fontSize.medium * 2}
-          />
-        </TotalContainer>
-        <DetailContainer>
-          <ShieldedValue value='SHIELDED' isBold size={theme.fontSize.small} />
-          <MiddleLabel
-            value={`${coinName} ${formatNumber({ value: shielded })}`}
-            isBold
-            size='16px'
-          />
-          <USDValue value={`USD $${formatNumber({ value: shielded * zecPrice })}`} />
-        </DetailContainer>
         <DetailContainer>
           <DefaultLabel value='TRANSPARENT' isBold size={theme.fontSize.small} />
           <MiddleLabel
             value={`${coinName} ${formatNumber({ value: transparent })}`}
             isBold
-            size='16px'
+            size={theme.fontSize.small}
           />
           <USDValue value={`USD $${formatNumber({ value: transparent * zecPrice })}`} />
         </DetailContainer>
         <DetailContainer>
+          <ShieldedValue value='SHIELDED' isBold size={theme.fontSize.small} />
+          <MiddleLabel
+            value={`${coinName} ${formatNumber({ value: shielded })}`}
+            isBold
+            size={theme.fontSize.small * 1}
+          />
+          <USDValue value={`USD $${formatNumber({ value: shielded * zecPrice })}`} />
+        </DetailContainer>
+        <DetailContainer>
           <UnconfirmedLabel value='UNCONFIRMED' isBold size={theme.fontSize.small} />
           <UnconfirmedValue
-            value={`${coinName} ${formatNumber({ value: transparent })}`}
+            value={`${coinName} ${formatNumber({ value: unconfirmed })}`}
             isBold
-            size='16px'
+            size='5px'
           />
           <USDValue value={`USD $${formatNumber({ value: unconfirmed * zecPrice })}`} />
         </DetailContainer>

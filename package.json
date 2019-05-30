@@ -1,10 +1,10 @@
 {
-  "name": "zepio",
+  "name": "bzwallet",
   "version": "0.6.2",
-  "description": "Zepio",
+  "description": "BZWallet",
   "main": "config/main.js",
   "license": "MIT",
-  "homepage": "https://zepiowallet.com",
+  "homepage": "https://getbze.com",
   "scripts": {
     "start": "yarn check --integrity && concurrently \"cross-env BROWSER=none yarn dev\" \"wait-on http://0.0.0.0:8080 && yarn electron:dev\"",
     "dev": "webpack-dev-server --config config/webpack-dev.config.js --mode development --open --hot",
@@ -146,7 +146,7 @@
   ],
   "build": {
     "appId": "com.zcashfoundation",
-    "productName": "Zepio",
+    "productName": "BZWallet",
     "asar": true,
     "directories": {
       "buildResources": "build",
