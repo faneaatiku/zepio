@@ -398,7 +398,6 @@ export class SettingsView extends PureComponent<Props, State> {
             </ModalContent>
           )}
         </ConfirmDialogComponent>
-
         <ThemeSelectWrapper>
           <SettingsTitle value='Theme' />
           <SelectComponent
