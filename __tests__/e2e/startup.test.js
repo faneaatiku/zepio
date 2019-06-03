@@ -22,11 +22,13 @@ describe('Startup', () => {
     expect.stringContaining('BZWallet Starting'),
   ));
 
-  test('should show the zcash logo in loading screen', () => expect(app.client.getAttribute('#loading-screen:first-child img', 'src')).resolves.toEqual(
-    expect.stringContaining('/assets/zcash-simple-icon.svg'),
-  ));
+  test('should show the zcash logo in loading screen', () => expect(
+    app.client.getAttribute('div[data-testid~="LoadingScreen"]:first-child img', 'src'),
+  ).resolves.toEqual(expect.stringContaining('/assets/zcash-simple-icon.svg')));
 
   test('should show the loading circle in loading screen', () => {
-    expect(app.client.element('#loading-screen svg').isExisting()).resolves.toEqual(true);
+    expect(
+      app.client.element('div[data-testid~="LoadingScreen"] svg').isExisting(),
+    ).resolves.toEqual(true);
   });
 });
