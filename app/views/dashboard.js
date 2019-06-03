@@ -70,7 +70,7 @@ type Props = {
   transactions: TransactionsList,
 };
 
-const UPDATE_INTERVAL = 10000;
+const UPDATE_INTERVAL = 1;
 const DISPLAY_WELCOME_MODAL = 'DISPLAY_WELCOME_MODAL';
 
 export class DashboardView extends PureComponent<Props> {
@@ -132,7 +132,7 @@ export class DashboardView extends PureComponent<Props> {
         )}
         {electron.remote.process.env.NODE_ENV !== 'test' && (
           <ConfirmDialogComponent
-            title='Welcome to Zepio'
+            title='Welcome to BZWallet'
             onConfirm={(toggle) => {
               store.set(DISPLAY_WELCOME_MODAL, false);
               toggle();
@@ -145,11 +145,11 @@ export class DashboardView extends PureComponent<Props> {
             {() => (
               <ModalContent>
                 <ContentWrapper>
-                  <LogoComponent src={zepioLogo} alt='Zepio' />
-                  <TitleComponent value='Hello from Zepio' isBold />
-                  <WelcomeText value='Zepio is a cross-platform full-node Zcash wallet that allows users to easily send and receive ZEC. With first-class support for Sapling shielded addresses, users are able to create truly private transactions using a modern and intuitive interface.' />
-                  <WelcomeText value='Zepio aims to improve the user experience for those seeking true financial privacy online.' />
-                  <AdditionalText value='Zepio will need to sync the Zcash blockchain data before using all features.' />
+                  <LogoComponent src={zepioLogo} alt='BZWallet' />
+                  <TitleComponent value='Hello from BZWallet' isBold />
+                  <WelcomeText value='BZWallet is a cross-platform full-node BZEdge wallet that allows users to easily send and receive BZE. With first-class support for Sapling shielded addresses, users are able to create truly private transactions using a modern and intuitive interface.' />
+                  <WelcomeText value='BZWallet aims to improve the user experience for those seeking true financial privacy online.' />
+                  <AdditionalText value='BZWallet will need to sync the BZEdge blockchain data before using all features.' />
                 </ContentWrapper>
               </ModalContent>
             )}

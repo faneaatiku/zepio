@@ -89,7 +89,7 @@ class Component extends PureComponent<Props, State> {
     return (
       <Wrapper id='console-wrapper'>
         <Fragment>
-          <ConsoleImg src={ConsoleSymbol} alt='Zcashd' />
+          <ConsoleImg src='https://projects.getbze.com/img/BZEdge_Color_Logo_ldsp_rev.png' alt='Bzedged' />
           {log.split('\n').map((item, idx) => (
             <Fragment key={uuid()}>
               <ConsoleText value={item} />
