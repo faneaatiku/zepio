@@ -5,7 +5,19 @@
   "description": "BZWallet | Cross-platform sapling-enabled full-node BZEdge wallet",
   "main": "config/main.js",
   "license": "MIT",
-  "homepage": "https://zepiowallet.com",
+  "homepage": "https://getbze.com",
+  "author": {
+    "name": "SlapMe",
+    "email": "alphateam@getbze.com",
+    "url": "https://getbze.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ZcashFoundation/zepio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZcashFoundation/zepio"
+  },
   "scripts": {
     "start": "yarn check --integrity && concurrently \"cross-env BROWSER=none yarn dev\" \"wait-on http://0.0.0.0:8080 && yarn electron:dev\"",
     "dev": "webpack-dev-server --config config/webpack-dev.config.js --mode development --open --hot",
@@ -37,94 +49,6 @@
     "hooks": {
       "pre-commit": "yarn lint:precommit && yarn flow:precommit",
       "pre-push": "yarn flow:generate-coverage-badge && git add ./public/flow-badge.svg ./public/flow-coverage-badge.svg && git commit -m \"type(flow): update flowtype badge\" --no-verify --allow-empty"
-    }
-  },
-  "build": {
-    "appId": "com.zcashfoundation",
-    "productName": "Zepio",
-    "asar": true,
-    "directories": {
-      "buildResources": "build",
-      "output": "dist"
-    },
-    "files": [
-      "node_modules/",
-      "services/",
-      "config/",
-      "utils/",
-      "app/",
-      "bin/",
-      "public/",
-      "build/"
-    ],
-    "deb": {
-      "depends": [
-        "gconf2",
-        "gconf-service",
-        "libnotify4",
-        "libappindicator1",
-        "libxtst6",
-        "libnss3"
-      ]
-    },
-    "linux": {
-      "icon": "./build/icons/png",
-      "target": [
-        "deb"
-      ],
-      "extraFiles": [
-        {
-          "from": "bin/linux",
-          "to": "resources/bin/linux",
-          "filter": [
-            "**/*"
-          ]
-        },
-        {
-          "from": "bin/zcash-fetch-params",
-          "to": "resources/bin/zcash-fetch-params"
-        }
-      ]
-    },
-    "mac": {
-      "category": "public.app-category.productivity",
-      "type": "distribution",
-      "target": [
-        "dmg"
-      ],
-      "icon": "./build/icons/mac/icon.icns",
-      "extraFiles": [
-        {
-          "from": "bin/mac",
-          "to": "resources/bin/mac",
-          "filter": [
-            "**/*"
-          ]
-        },
-        {
-          "from": "bin/zcash-fetch-params",
-          "to": "resources/bin/zcash-fetch-params"
-        }
-      ]
-    },
-    "win": {
-      "target": "nsis",
-      "icon": "./build/icons/win/icon.ico",
-      "extraFiles": [
-        {
-          "from": "bin/win",
-          "to": "resources/bin/win",
-          "filter": [
-            "**/*"
-          ]
-        }
-      ]
-    },
-    "protocols": {
-      "name": "zcash",
-      "schemes": [
-        "zcash"
-      ]
     }
   },
   "private": true,
@@ -236,7 +160,7 @@
   ],
   "build": {
     "appId": "com.zcashfoundation",
-    "productName": "Zepio",
+    "productName": "BZWallet",
     "asar": true,
     "directories": {
       "buildResources": "build",
@@ -280,9 +204,9 @@
       "icon": "./build/icons/win/icon.ico"
     },
     "protocols": {
-      "name": "zcash",
+      "name": "bzedge",
       "schemes": [
-        "zcash"
+        "bzedge"
       ]
     }
   },

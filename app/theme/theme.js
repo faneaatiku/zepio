@@ -32,7 +32,6 @@ export const appTheme: AppTheme = {
   layoutPaddingRight: '35px',
   layoutContentPaddingTop: '20px',
   boxBorderRadius: '3px',
-
   // Misc
   transitionEase: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
 

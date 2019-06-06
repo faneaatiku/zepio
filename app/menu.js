@@ -3,7 +3,7 @@
 import { openExternal } from './utils/open-external';
 import packageJson from '../package.json';
 
-const DOCS_URL = 'https://zepiowallet.com/';
+const DOCS_URL = 'https://getbze.com/';
 const REPOSITORY_URL = 'https://github.com/ZcashFoundation/zepio/issues';
 
 const menu = [
@@ -32,7 +32,7 @@ const helpMenu = {
   role: 'help',
   submenu: [
     {
-      label: `Zepio Version v${packageJson.version}`,
+      label: `BZWallet Version v${packageJson.version}`,
       enabled: false,
     },
     { type: 'separator' },

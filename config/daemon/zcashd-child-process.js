@@ -160,7 +160,7 @@ const runDaemon: () => Promise<?ChildProcess> = () => new Promise(async (resolve
     store.set(EMBEDDED_DAEMON, false);
     log(
       // eslint-disable-next-line
-        `A daemon was found running in PID: ${daemonProcessId}. Starting Zepio in external daemon mode.`,
+        `A daemon was found running in PID: ${daemonProcessId}. Starting BZWallet in external daemon mode.`,
     );
 
     // Command line args override zcash.conf
@@ -189,7 +189,7 @@ const runDaemon: () => Promise<?ChildProcess> = () => new Promise(async (resolve
   }
 
   log(
-    "Zepio couldn't find a `zcashd.pid`, that means there is no instance of zcash running on the machine, trying start built-in daemon",
+    "BZWallet couldn't find a `zcashd.pid`, that means there is no instance of bzedge running on the machine, trying start built-in daemon",
   );
 
   store.set(EMBEDDED_DAEMON, true);

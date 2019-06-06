@@ -40,7 +40,7 @@ const EXPORT_PRIV_KEYS_CONTENT = 'Beware: exporting your private keys will allow
 const BACKUP_WALLET_TITLE = 'Backup Wallet';
 const BACKUP_WALLET_CONTENT = 'It is recommended that you backup your wallet often to avoid possible issues arising from data corruption.';
 const CONFIRM_RELAUNCH_CONTENT = "You'll need to restart the application and the internal full node. Are you sure you want to do this?";
-const RUNNING_NON_EMBEDDED_DAEMON_WARNING = 'You are using a separate zcashd process, in order to change the network, you need to restart the process yourself';
+const RUNNING_NON_EMBEDDED_DAEMON_WARNING = 'You are using a separate bzedge process, in order to change the network, you need to restart the process yourself';
 
 const SHIELDED_ADDRESS_PRIVATE_KEY_PREFIX = isTestnet() ? 'secret-extended-key' : 'SK';
 
@@ -373,31 +373,31 @@ export class SettingsView extends PureComponent<Props, State> {
 
     return (
       <Wrapper>
-        <ConfirmDialogComponent
-          title='Confirm'
-          onConfirm={() => updateZcashNetwork(zcashNetwork === MAINNET ? TESTNET : MAINNET)}
-          showButtons={embeddedDaemon}
-          renderTrigger={toggleVisibility => (
-            <ThemeSelectWrapper>
-              <SettingsTitle value='BZE Network' />
-              <SelectComponent
-                onChange={value => (zcashNetwork !== value ? toggleVisibility() : undefined)}
-                value={zcashNetwork}
-                options={networkOptions}
-              />
-            </ThemeSelectWrapper>
-          )}
-        >
-          {() => (
-            <ModalContent>
-              <TextComponent
-                value={
-                  embeddedDaemon ? CONFIRM_RELAUNCH_CONTENT : RUNNING_NON_EMBEDDED_DAEMON_WARNING
-                }
-              />
-            </ModalContent>
-          )}
-        </ConfirmDialogComponent>
+        {/*<ConfirmDialogComponent*/}
+        {/*  title='Confirm'*/}
+        {/*  onConfirm={() => updateZcashNetwork(zcashNetwork === MAINNET ? TESTNET : MAINNET)}*/}
+        {/*  showButtons={embeddedDaemon}*/}
+        {/*  renderTrigger={toggleVisibility => (*/}
+        {/*    <ThemeSelectWrapper>*/}
+        {/*      <SettingsTitle value='BZE Network' />*/}
+        {/*      <SelectComponent*/}
+        {/*        onChange={value => (zcashNetwork !== value ? toggleVisibility() : undefined)}*/}
+        {/*        value={zcashNetwork}*/}
+        {/*        options={networkOptions}*/}
+        {/*      />*/}
+        {/*    </ThemeSelectWrapper>*/}
+        {/*  )}*/}
+        {/*>*/}
+        {/*  {() => (*/}
+        {/*    <ModalContent>*/}
+        {/*      <TextComponent*/}
+        {/*        value={*/}
+        {/*          embeddedDaemon ? CONFIRM_RELAUNCH_CONTENT : RUNNING_NON_EMBEDDED_DAEMON_WARNING*/}
+        {/*        }*/}
+        {/*      />*/}
+        {/*    </ModalContent>*/}
+        {/*  )}*/}
+        {/*</ConfirmDialogComponent>*/}
         <ThemeSelectWrapper>
           <SettingsTitle value='Theme' />
           <SelectComponent

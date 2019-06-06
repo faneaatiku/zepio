@@ -102,6 +102,7 @@ export const LIGHT_COLORS = {
   sidebarBg: white,
   sidebarBorderRight: alto,
   sidebarLogoGradientBegin: saffron,
+  logoUrl: 'https://raw.githubusercontent.com/bze-alphateam/Official-BZEdge-Graphics/master/Digital-Web/Wallet/BZWallet_Color_Black.png',
   sidebarLogoGradientEnd: brightSun,
   sidebarHoveredItemLabel: manatee,
   sidebarItem: silverChalice,

@@ -39,9 +39,9 @@ const initialLog = `
 `;
 
 const defaultState = `
-  Thank you for running a Zcash node!
+  Thank you for running a BZEdge node!
   You're helping to strengthen the network and contributing to a social good :)
-  In order to ensure you are adequately protecting your privacy when using Zcash, please see <https://z.cash/support/security/>.
+  In order to ensure you are adequately protecting your privacy when using BZEdge, please see <https://getbze.com/>.
 
   Block height | 0
   Connections | 0
