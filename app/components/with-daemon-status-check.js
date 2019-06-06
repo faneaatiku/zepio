@@ -27,7 +27,7 @@ export const withDaemonStatusCheck = <PassedProps: {}>(
     state = {
       isRunning: false,
       progress: 0,
-      message: 'Zepio Starting',
+      message: 'BZWallet Starting',
     };
 
     componentDidMount() {

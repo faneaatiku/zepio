@@ -21,12 +21,12 @@ const getRPCConfig = () => {
 
 const getMessage = (statusCode: number, isECONNREFUSED: boolean) => {
   if (isECONNREFUSED) {
-    return 'Zepio could not find a daemon running, please check the logs!';
+    return 'BZWallet could not find a daemon running, please check the logs!';
   }
 
   switch (statusCode) {
     case 401:
-      return 'Not authorized to access Zcash RPC, please check your rpcuser and rpcpassword';
+      return 'Not authorized to access BZE RPC, please check your rpcuser and rpcpassword';
     default:
       return 'Something went wrong';
   }

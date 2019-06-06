@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   font-family: ${props => props.theme.fontFamily};
   background-color: ${props => props.theme.colors.sidebarBg};
   border-right: 1px solid ${props => props.theme.colors.sidebarBorderRight};
-  padding-top: 15px;
+  // padding-top: 15px;
   position: relative;
 `;
 

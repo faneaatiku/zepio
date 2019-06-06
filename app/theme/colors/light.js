@@ -26,9 +26,9 @@ const manatee = '#8E8E96';
 const error = '#FF6C6C';
 const success = '#66BE54';
 const cornflowerBlue = '#5684EB';
-const saffron = '#F4B728';
-const brightSun = '#FFE240';
-const offBrand = 'rgba(238,201,76,0.65)';
+const saffron = '#100037';
+const brightSun = '#00C3E2';
+const offBrand = '#00C3E2';
 
 export const LIGHT_COLORS = {
   // General
@@ -102,6 +102,7 @@ export const LIGHT_COLORS = {
   sidebarBg: white,
   sidebarBorderRight: alto,
   sidebarLogoGradientBegin: saffron,
+  logoUrl: 'https://raw.githubusercontent.com/bze-alphateam/Official-BZEdge-Graphics/master/Digital-Web/Wallet/BZWallet_Color_Black.png',
   sidebarLogoGradientEnd: brightSun,
   sidebarHoveredItemLabel: manatee,
   sidebarItem: silverChalice,
