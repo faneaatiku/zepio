@@ -9,6 +9,8 @@ import { formatNumber } from '../utils/format-number';
 import { getCoinName } from '../utils/get-coin-name';
 import { DARK } from '../constants/themes';
 
+import { media } from '../theme';
+
 import ShieldDarkImage from '../assets/images/shield_dark.png';
 import ShieldLightImage from '../assets/images/shield_light.png';
 
@@ -18,12 +20,17 @@ const OutsideWrapper = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: ${props => props.theme.colors.walletSummaryBg};
   border: 1px solid ${props => props.theme.colors.walletSummaryBorder};
   border-radius: ${props => props.theme.boxBorderRadius};
   padding: 30px 30px;
   position: relative;
+
+  ${media.main`
+    margin-top: 0;
+    flex-direction: row;
+  `}
 `;
 
 const OutsideLabel = styled(TextComponent)`
@@ -84,6 +91,15 @@ const UnconfirmedLabel = styled(DefaultLabel)`
 
 const UnconfirmedValue = styled(MiddleLabel)`
   color: ${props => props.theme.colors.walletSummaryUnconfirmed};
+`;
+
+const DetailMainContainer = styled.div`
+  display: flex;
+  margin-top: 1rem;
+
+  ${media.main`
+    margin-top: 0;
+  `}
 `;
 
 type Props = {
