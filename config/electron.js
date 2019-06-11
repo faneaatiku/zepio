@@ -11,6 +11,7 @@ import {
 } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import isDev from 'electron-is-dev';
+import request from 'request';
 import { registerDebugShortcut } from '../utils/debug-shortcut';
 import runDaemon from './daemon/zcashd-child-process';
 import { log as zcashLog, cleanLogs } from './daemon/logger';
@@ -70,7 +71,10 @@ const createWindow = () => {
       webSecurity: true,
     },
   });
-  getZecPrice().then(({ USD }) => store.set('ZEC_DOLLAR_PRICE', String(USD)));
+
+  request('https://getbze.com/api/price/usd', function (error, response, body) {
+    store.set('ZEC_DOLLAR_PRICE', body);
+  });
 
   mainWindow.setVisibleOnAllWorkspaces(true);
   registerDebugShortcut(app, mainWindow);
