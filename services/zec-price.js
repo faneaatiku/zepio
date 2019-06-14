@@ -12,11 +12,9 @@ type Payload = {
 */
 // eslint-disable-next-line
 export default (currencies: string[] = ['USD']): Promise<Payload> => new Promise((resolve, reject) => {
-  const ENDPOINT = `https://min-api.cryptocompare.com/data/price?fsym=ZEC&tsyms=${currencies.join(
-    ',',
-  )}&api_key=${String(process.env.ZEC_PRICE_API_KEY)}`;
+  const ENDPOINT = 'https://getbze.com/api/price/usd';
 
   got(ENDPOINT)
-    .then(response => resolve(JSON.parse(response.body)))
+    .then(response => resolve(response.body))
     .catch(reject);
 });

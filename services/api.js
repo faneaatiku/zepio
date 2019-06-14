@@ -13,20 +13,20 @@ const getRPCConfig = () => {
 
   return {
     host: rpcconnect || '127.0.0.1',
-    port: rpcport || (isTestnet() ? 18232 : 8232),
-    user: (store.get('rpcuser'): string),
-    password: (store.get('rpcpassword'): string),
+    port: rpcport || (isTestnet() ? 18232 : 1980),
+    user: store.get('rpcuser'),
+    password: store.get('rpcpassword'),
   };
 };
 
 const getMessage = (statusCode: number, isECONNREFUSED: boolean) => {
   if (isECONNREFUSED) {
-    return 'Zepio could not find a daemon running, please check the logs!';
+    return 'BZWallet could not find a daemon running, please check the logs!';
   }
 
   switch (statusCode) {
     case 401:
-      return 'Not authorized to access Zcash RPC, please check your rpcuser and rpcpassword';
+      return 'Not authorized to access BZE RPC, please check your rpcuser and rpcpassword';
     default:
       return 'Something went wrong';
   }

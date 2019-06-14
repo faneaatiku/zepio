@@ -103,7 +103,7 @@ class Component extends PureComponent<Props, State> {
             >
               <LoadingCard>
                 <CircleWrapper>
-                  <Logo src={zcashLogo} alt='Zcash Logo' />
+                  <Logo src={zcashLogo} alt='BZE Logo' />
                   <CircleProgressComponent
                     progress={progress}
                     responsive

@@ -38,7 +38,6 @@ export class App extends Component<Props, State> {
 
   render() {
     const { themeMode } = this.state;
-
     return (
       <ThemeProvider theme={{ ...theme, mode: themeMode }}>
         <Fragment>

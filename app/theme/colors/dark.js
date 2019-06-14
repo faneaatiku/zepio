@@ -23,9 +23,10 @@ const woodsmoke = '#222222';
 const heavyMetal = '#0A0A0A';
 
 // Colors
-const saffron = '#F4B728';
-const brightSun = '#FFE240';
-const offBrand = 'rgba(238,201,76,0.65)';
+const saffron = '#00C3E2';
+const left = '#100037';
+const brightSun = '#00C3E2';
+const offBrand = '#00C3E2';
 const error = '#FF6C6C';
 const success = '#6AEAC0';
 
@@ -103,8 +104,8 @@ export const DARK_COLORS = {
   // Sidebar
   sidebarBg: black,
   sidebarBorderRight: black,
-  sidebarLogoGradientBegin: saffron,
-  sidebarLogoGradientEnd: brightSun,
+  sidebarLogoGradientBegin: black,
+  sidebarLogoGradientEnd: black,
   sidebarHoveredItemLabel: manatee,
   sidebarActiveItemBorder: error,
   sidebarItem: scorpion,

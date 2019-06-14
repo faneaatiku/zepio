@@ -11,6 +11,7 @@ import {
 } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import isDev from 'electron-is-dev';
+import request from 'request';
 import { registerDebugShortcut } from '../utils/debug-shortcut';
 import runDaemon from './daemon/zcashd-child-process';
 import { log as zcashLog, cleanLogs } from './daemon/logger';
@@ -18,6 +19,7 @@ import getZecPrice from '../services/zec-price';
 import store from './electron-store';
 import { handleDeeplink } from './handle-deeplink';
 import { MENU } from '../app/menu';
+import rpc from '../services/api';
 
 dotenv.config();
 
@@ -70,7 +72,9 @@ const createWindow = () => {
     },
   });
 
-  getZecPrice().then(({ USD }) => store.set('ZEC_DOLLAR_PRICE', String(USD)));
+  request('https://getbze.com/api/price/usd', function (error, response, body) {
+    store.set('ZEC_DOLLAR_PRICE', body);
+  });
 
   mainWindow.setVisibleOnAllWorkspaces(true);
   registerDebugShortcut(app, mainWindow);
@@ -85,7 +89,7 @@ const createWindow = () => {
   exports.mainWindow = mainWindow;
 };
 
-app.setAsDefaultProtocolClient('zcash');
+app.setAsDefaultProtocolClient('bzedge');
 
 const instanceLock = app.requestSingleInstanceLock();
 if (instanceLock) {
@@ -128,7 +132,7 @@ app.on('ready', async () => {
   runDaemon()
     .then((proc) => {
       if (proc) {
-        zcashLog(`Zcash Daemon running. PID: ${proc.pid}`);
+        zcashLog(`BZEdge Daemon running. PID: ${proc.pid}`);
         zcashDaemon = proc;
       }
     })
@@ -138,11 +142,9 @@ app.on('activate', () => {
   if (mainWindow === null) createWindow();
 });
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+  app.quit();
 });
 app.on('before-quit', () => {
-  if (zcashDaemon) {
-    zcashLog('Graceful shutdown Zcash Daemon, this may take a few seconds.');
-    zcashDaemon.kill('SIGINT');
-  }
+  rpc.stop();
+  zcashLog('Graceful shutdown BZEdge Daemon, this may take a few seconds.');
 });
