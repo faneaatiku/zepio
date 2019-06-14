@@ -141,6 +141,7 @@ export class DashboardView extends PureComponent<Props> {
                   <WelcomeText value='BZWallet is a cross-platform full-node BZEdge wallet that allows users to easily send and receive BZE. With first-class support for Sapling shielded addresses, users are able to create truly private transactions using a modern and intuitive interface.' />
                   <WelcomeText value='BZWallet aims to improve the user experience for those seeking true financial privacy online.' />
                   <AdditionalText value='BZWallet will need to sync the BZEdge blockchain data before using all features.' />
+                  <AdditionalText value='Many thanks to Zepio and Zcash Foundation for developing awesome open source projects.' />
                 </ContentWrapper>
               </ModalContent>
             )}

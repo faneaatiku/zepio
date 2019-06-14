@@ -3,8 +3,8 @@
 import { openExternal } from './utils/open-external';
 import packageJson from '../package.json';
 
-const DOCS_URL = 'https://getbze.com/';
-const REPOSITORY_URL = 'https://github.com/ZcashFoundation/zepio/issues';
+const DOCS_URL = 'https://github.com/bze-alphateam/BZWallet/wiki';
+const REPOSITORY_URL = 'https://github.com/bze-alphateam/BZWallet/issues';
 
 const menu = [
   {
