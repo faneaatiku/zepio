@@ -12,11 +12,11 @@
     "url": "https://getbze.com"
   },
   "bugs": {
-    "url": "https://github.com/ZcashFoundation/zepio/issues"
+    "url": "https://github.com/bze-alphateam/BZWallet/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZcashFoundation/zepio"
+    "url": "git+https://github.com/bze-alphateam/BZWallet.git"
   },
   "scripts": {
     "start": "yarn check --integrity && concurrently \"cross-env BROWSER=none yarn dev\" \"wait-on http://0.0.0.0:8080 && yarn electron:dev\"",

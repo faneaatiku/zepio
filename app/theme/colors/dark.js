@@ -104,10 +104,9 @@ export const DARK_COLORS = {
   // Sidebar
   sidebarBg: black,
   sidebarBorderRight: black,
-  sidebarLogoGradientBegin: left,
-  sidebarLogoGradientEnd: brightSun,
+  sidebarLogoGradientBegin: black,
+  sidebarLogoGradientEnd: black,
   sidebarHoveredItemLabel: manatee,
-  logoUrl: 'https://raw.githubusercontent.com/bze-alphateam/Official-BZEdge-Graphics/master/Digital-Web/Wallet/BZWallet_Color_White.png',
   sidebarActiveItemBorder: error,
   sidebarItem: scorpion,
   sidebarItemActive: saffron,
