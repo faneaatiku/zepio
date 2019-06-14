@@ -61,7 +61,7 @@ const AdditionalText = styled(TextComponent)`
 
 type Props = MapDispatchToProps & MapStateToProps;
 
-const UPDATE_INTERVAL = 1;
+const UPDATE_INTERVAL = 5000;
 const DISPLAY_WELCOME_MODAL = 'DISPLAY_WELCOME_MODAL';
 
 export class DashboardView extends PureComponent<Props> {
