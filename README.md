@@ -122,3 +122,4 @@ In order to contribute and submit PRs to improve **BZWallet** or **Zepio** codeb
 ## License
 
 MIT © Zcash Foundation 2019 [zfnd.org](zfnd.org)
+MIT © BZE Alpha Team 2019 [getbze.com](getbze.com)
