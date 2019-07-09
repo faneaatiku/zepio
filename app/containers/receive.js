@@ -46,9 +46,13 @@ const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToProps => ({
 
     const [zAddressesErr, zAddresses] = await eres(rpc.z_listaddresses());
 
-    const [tAddressesErr, transparentAddresses] = await eres(rpc.getaddressesbyaccount(''));
+    const [tAddressesErr, tAddresses] = await eres(rpc.getaddresses());
 
     if (zAddressesErr || tAddressesErr) return dispatch(loadAddressesError({ error: 'Something went wrong!' }));
+
+    const transparentAddresses = [
+      ...tAddresses.map((el => el.address)),
+    ];
 
     const latestZAddress = zAddresses.find(addr => addr === electronStore.get(getLatestAddressKey('shielded')))
       || zAddresses[0];
