@@ -1,7 +1,7 @@
 {
   "name": "bzwallet",
   "productName": "BZWallet",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "BZWallet | Cross-platform sapling-enabled full-node BZEdge wallet",
   "main": "config/main.js",
   "license": "MIT",
@@ -132,6 +132,7 @@
     "find-process": "^1.2.1",
     "got": "^9.3.2",
     "history": "^4.7.2",
+    "humanize-duration": "^3.18.0",
     "lodash.flow": "^3.5.0",
     "lodash.groupby": "^4.6.0",
     "lodash.uniqby": "^4.7.0",
