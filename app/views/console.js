@@ -1,16 +1,18 @@
 // @flow
 
 import React, { PureComponent, Fragment } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { ipcRenderer } from 'electron';
 import styled, { withTheme } from 'styled-components';
 import uuid from 'uuid/v4';
+import eres from 'eres';
+import humanizeDuration from 'humanize-duration';
 
 import { TextComponent } from '../components/text';
 
 import ConsoleSymbolDark from '../assets/images/console_zcash_dark.png';
 import ConsoleSymbolLight from '../assets/images/console_zcash_light.png';
 import { DARK } from '../constants/themes';
+import rpc from '../../services/api';
+import store from '../../config/electron-store';
 
 const Wrapper = styled.div`
   max-height: 100%;
@@ -32,10 +34,8 @@ const ConsoleImg = styled.img`
 `;
 
 const initialLog = `
-  Thank you for running a Zcash node!
+  Thank you for running a BZEdge node!
   You're helping to strengthen the network and contributing to a social good :)
-
-  In order to ensure you are adequately protecting your privacy when using Zcash, please see <https://z.cash/support/security/>.
 `;
 
 const defaultState = `
@@ -62,26 +62,68 @@ type Props = {
 };
 
 type State = {
-  log: string,
+  blockHeight: number,
+  connections: number,
+  networkSolutionsRate: number,
 };
 
 class Component extends PureComponent<Props, State> {
+  interval: ?IntervalID = null;
+
+  requestOnTheFly: boolean = false;
+
   state = {
-    log: defaultState,
+    blockHeight: 0,
+    connections: 0,
+    networkSolutionsRate: 0,
   };
 
   componentDidMount() {
-    ipcRenderer.on('zcashd-log', (event: empty, message: string) => {
-      this.setState(() => ({ log: initialLog + message }));
-    });
+    this.interval = setInterval(() => this.update(), 3000);
   }
 
   componentWillUnmount() {
-    ipcRenderer.removeAllListeners('zcashd-log');
+    clearInterval(this.interval);
   }
 
+  update = async () => {
+    if (this.requestOnTheFly) return;
+
+    this.requestOnTheFly = true;
+
+    const [err, result] = await eres(Promise.all([rpc.getinfo(), rpc.getmininginfo()]));
+
+    if (err) return;
+
+    this.setState(
+      {
+        blockHeight: result[0].blocks,
+        connections: result[0].connections,
+        networkSolutionsRate: result[1].networksolps,
+      },
+      () => {
+        this.requestOnTheFly = false;
+      },
+    );
+  };
+
+  getLog = (state: State) => `
+    Thank you for running a BZEdge node!
+    You're helping to strengthen the network and contributing to a social good :)
+    In order to ensure you are adequately protecting your privacy when using BZEdge, please see <https://getbze.com/>.
+
+    Block height | ${state.blockHeight}
+    Connections | ${state.connections}
+    Network solution rate | ${state.networkSolutionsRate} Sol/s
+
+    Started ${humanizeDuration(new Date() - new Date(store.get('DAEMON_START_TIME')), {
+    round: true,
+  })} ago
+  \n
+  ------------------------------------------
+  `;
+
   render() {
-    const { log } = this.state;
     const { theme } = this.props;
 
     const ConsoleSymbol = theme.mode === DARK ? ConsoleSymbolDark : ConsoleSymbolLight;
