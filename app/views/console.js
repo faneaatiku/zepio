@@ -33,28 +33,6 @@ const ConsoleImg = styled.img`
   width: auto;
 `;
 
-const initialLog = `
-  Thank you for running a BZEdge node!
-  You're helping to strengthen the network and contributing to a social good :)
-`;
-
-const defaultState = `
-  Thank you for running a BZEdge node!
-  You're helping to strengthen the network and contributing to a social good :)
-  In order to ensure you are adequately protecting your privacy when using BZEdge, please see <https://getbze.com/>.
-
-  Block height | 0
-  Connections | 0
-  Network solution rate | 0 Sol/s
-  You are currently not mining.
-  To enable mining, add 'gen=1' to your zcash.conf and restart.
-
-  Since starting this node 0 minutes, 0 seconds ago:
-- You have validated 0 transactions!
-\n
-------------------------------------------
-`;
-
 const breakpoints = [1, 4, 7, 10, 13];
 
 type Props = {
@@ -96,14 +74,14 @@ class Component extends PureComponent<Props, State> {
     if (err) return;
 
     this.setState(
-      {
-        blockHeight: result[0].blocks,
-        connections: result[0].connections,
-        networkSolutionsRate: result[1].networksolps,
-      },
-      () => {
-        this.requestOnTheFly = false;
-      },
+        {
+          blockHeight: result[0].blocks,
+          connections: result[0].connections,
+          networkSolutionsRate: result[1].networksolps,
+        },
+        () => {
+          this.requestOnTheFly = false;
+        },
     );
   };
 
@@ -111,11 +89,9 @@ class Component extends PureComponent<Props, State> {
     Thank you for running a BZEdge node!
     You're helping to strengthen the network and contributing to a social good :)
     In order to ensure you are adequately protecting your privacy when using BZEdge, please see <https://getbze.com/>.
-
     Block height | ${state.blockHeight}
     Connections | ${state.connections}
     Network solution rate | ${state.networkSolutionsRate} Sol/s
-
     Started ${humanizeDuration(new Date() - new Date(store.get('DAEMON_START_TIME')), {
     round: true,
   })} ago
@@ -129,17 +105,19 @@ class Component extends PureComponent<Props, State> {
     const ConsoleSymbol = theme.mode === DARK ? ConsoleSymbolDark : ConsoleSymbolLight;
 
     return (
-      <Wrapper id='console-wrapper'>
-        <Fragment>
-          <ConsoleImg src='https://projects.getbze.com/img/BZEdge_Color_Logo_ldsp_rev.png' alt='Bzedged' />
-          {log.split('\n').map((item, idx) => (
-            <Fragment key={uuid()}>
-              <ConsoleText value={item} />
-              {breakpoints.includes(idx) ? <br /> : null}
-            </Fragment>
-          ))}
-        </Fragment>
-      </Wrapper>
+        <Wrapper id='console-wrapper'>
+          <Fragment>
+            <ConsoleImg src='https://projects.getbze.com/img/BZEdge_Color_Logo_ldsp_rev.png' alt='Bzedged' />
+            {this.getLog(this.state)
+                .split('\n')
+                .map((item, idx) => (
+                    <Fragment key={uuid()}>
+                      <ConsoleText value={item} />
+                      {breakpoints.includes(idx) ? <br /> : null}
+                    </Fragment>
+                ))}
+          </Fragment>
+        </Wrapper>
     );
   }
 }
