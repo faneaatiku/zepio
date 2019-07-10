@@ -139,11 +139,11 @@ const runDaemon: () => Promise<?ChildProcess> = () => new Promise(async (resolve
   let useDefaultZcashConf = false;
 
   if (optionsFromZcashConf.datadir) {
-    const hasDatadirConf = fs.existsSync(path.join(optionsFromZcashConf.datadir, 'zcash.conf'));
+    const hasDatadirConf = fs.existsSync(path.join(optionsFromZcashConf.datadir, 'bzedge.conf'));
 
     if (hasDatadirConf) {
       optionsFromZcashConf = await parseZcashConf(
-        path.join(String(optionsFromZcashConf.datadir), 'zcash.conf'),
+        path.join(String(optionsFromZcashConf.datadir), 'bzedge.conf'),
       );
     } else {
       useDefaultZcashConf = true;
@@ -191,7 +191,7 @@ const runDaemon: () => Promise<?ChildProcess> = () => new Promise(async (resolve
   }
 
   log(
-    "BZWallet couldn't find a `zcashd.pid`, that means there is no instance of bzedge running on the machine, trying start built-in daemon",
+    "BZWallet couldn't find a `bzedge.pid`, that means there is no instance of bzedge running on the machine, trying start built-in daemon",
   );
 
   store.set(EMBEDDED_DAEMON, true);
